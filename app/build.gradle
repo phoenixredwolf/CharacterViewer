@@ -1,0 +1,140 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.sample.sampleapp'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.sample.sampleapp"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", "\"https://api.duckduckgo.com/\""
+    }
+    flavorDimensions "version"
+    productFlavors {
+        SimpsonViewer {
+            dimension 'version'
+            manifestPlaceholders = [appLabel: "Simpsons Character Viewer",
+                                    appTheme: "@style/Theme.SimpsonTheme"]
+            applicationId 'com.sample.simpsonsviewer'
+            buildConfigField "String", "SEARCH_TERM", "\"?q=simpsons+characters&format=json\""
+            buildConfigField "String", "FRAGMENT_NAME", "\"Simpson's\""
+            versionCode 1
+            versionName "1.0"
+        }
+        WireViewer {
+            dimension 'version'
+            manifestPlaceholders = [appLabel: "The Wire Character Viewer",
+                                    appTheme: "@style/Theme.WireViewer"]
+            applicationId 'com.sample.wireviewer'
+            buildConfigField "String", "SEARCH_TERM", "\"?q=wire+characters&format=json\""
+            buildConfigField "String", "FRAGMENT_NAME", "\"The Wire\""
+            versionCode 1
+            versionName "1.0"
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+    sourceSets {
+        SimpsonViewer {
+            res {
+                srcDirs 'src/SimpsonsViewer/res'
+            }
+            java {
+                srcDirs 'src/SimpsonsViewer/java'
+            }
+        }
+        WireViewer {
+            res {
+                srcDirs 'src/WireViewer/res'
+            }
+            java {
+                srcDirs 'src/WireViewer/java'
+            }
+        }
+    }
+}
+
+dependencies {
+
+    // Androidx
+    implementation libs.androidx.activity
+    implementation libs.core.ktx
+    implementation libs.lifecycle.ktx
+    implementation libs.lifecycle.viewmodel
+
+    // Coil
+    implementation libs.coil
+
+    // Constraint Layout
+    implementation libs.constraint.layout
+
+    // Coroutines
+    implementation libs.coroutine.android
+    implementation libs.coroutine.core
+
+    // Hilt
+    implementation libs.hilt.android
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    kapt libs.hilt.compiler
+    implementation libs.hilt.navigation
+
+    // Material Design
+    implementation libs.material
+
+    // Moshi
+    implementation libs.moshi
+
+    // Navigation
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+
+    // OkHttp
+    implementation libs.okhttp.logger
+
+    // Retrofit
+    implementation libs.converter.moshi
+    implementation libs.retrofit
+
+    // Sliding Panel Layout
+    implementation libs.sliding.panel
+
+    // Splash Screen
+    implementation libs.splash.core
+
+    // Testing
+    testImplementation libs.junit
+    androidTestImplementation libs.junit.ext
+    androidTestImplementation libs.espresso.core
+    testImplementation libs.coroutines.test
+    testImplementation libs.mockito.core
+}

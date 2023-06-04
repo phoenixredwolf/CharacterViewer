@@ -1,0 +1,97 @@
+[versions]
+# Android
+activity = "1.7.1"
+ktx = "1.10.0"
+lifecycle-ktx = "2.6.1"
+
+# Coil
+coil = "2.3.0"
+
+# Constraint Layout
+constraint = "2.2.0-alpha09"
+
+# Coroutines
+coroutines = "1.7.1"
+
+# Dagger-Hilt
+hilt = "2.46.1"
+hilt-navigation = "1.1.0-alpha02"
+
+# OkHttp
+okhttp = "4.10.0"
+
+# Material Design
+material = "1.9.0"
+
+# Moshi
+moshi = "1.12.0"
+
+# Navigation
+navigation = "2.5.3"
+
+# Retrofit
+retrofit = "2.9.0"
+
+# splash api
+splash-core = "1.0.0"
+
+# sliding panel layout
+sliding = "1.2.0-beta01"
+
+# testing
+junit = "4.13.2"
+junit-ext = "1.1.5"
+espresso = "3.5.1"
+mockito = "5.3.1"
+
+[libraries]
+# Androidx
+androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+lifecycle-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-ktx" }
+
+# Coil
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+
+# Constraint Layout
+constraint-layout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraint" }
+
+# Coroutines
+coroutine-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines"}
+coroutine-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines"}
+
+# Dagger-Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation", version.ref = "hilt-navigation"}
+
+# material
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Moshi
+moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+
+# Navigation
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+
+# OkHttp
+okhttp-logger = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+# Retrofit
+converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+
+# sliding panel layout
+sliding-panel = { group = "androidx.slidingpanelayout", name = "slidingpanelayout", version.ref = "sliding" }
+
+# splash api
+splash-core = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash-core"}
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+junit-ext = { group = "androidx.test.ext", name = "junit", version.ref = "junit-ext" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
