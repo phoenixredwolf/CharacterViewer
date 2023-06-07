@@ -6,14 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.sampleapp.data.model.CharacterResponse
 import com.sample.sampleapp.data.model.NetworkResult
-import com.sample.sampleapp.data.repo.CharacterRepository
+import com.sample.sampleapp.data.repo.CharacterRespository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.jetbrains.annotations.VisibleForTesting
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val repo: CharacterRepository): ViewModel() {
+class MainViewModel @Inject constructor(private val repo: CharacterRespository): ViewModel() {
 
     private var _characters = MutableLiveData<NetworkResult<CharacterResponse>>()
     val characters: LiveData<NetworkResult<CharacterResponse>> = _characters
@@ -25,8 +24,8 @@ class MainViewModel @Inject constructor(private val repo: CharacterRepository): 
         getData()
     }
 
-    @VisibleForTesting
-    private fun getData() {
+
+    fun getData() {
         viewModelScope.launch {
             repo.getData().collect {
                 _characters.postValue(it)

@@ -120,6 +120,7 @@ dependencies {
 
     // OkHttp
     implementation libs.okhttp.logger
+    implementation libs.okhttp.webserver
 
     // Retrofit
     implementation libs.converter.moshi
@@ -132,9 +133,14 @@ dependencies {
     implementation libs.splash.core
 
     // Testing
+    testImplementation libs.androidx.arch
     testImplementation libs.junit
-    androidTestImplementation libs.junit.ext
-    androidTestImplementation libs.espresso.core
     testImplementation libs.coroutines.test
     testImplementation libs.mockito.core
+    testImplementation 'org.json:json:20180813'
+    androidTestImplementation libs.junit.ext
+    androidTestImplementation libs.espresso.contrib
+    androidTestImplementation libs.espresso.core
+    androidTestImplementation libs.test.rules
+    androidTestImplementation libs.test.runner
 }

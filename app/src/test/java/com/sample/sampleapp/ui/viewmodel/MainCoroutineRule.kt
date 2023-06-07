@@ -1,25 +1,22 @@
-package com.sample.sampleapp.ui.test
+package com.sample.sampleapp.ui.viewmodel
 
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
-import kotlin.coroutines.ContinuationInterceptor
-import kotlin.coroutines.CoroutineContext
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class MainCoroutineRule(
-    private val coroutineContext: CoroutineContext
-) : TestWatcher() {
+    private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+) : TestWatcher(), TestCoroutineScope by TestCoroutineScope(dispatcher) {
 
     override fun starting(description: Description) {
         super.starting(description)
-        Dispatchers.setMain(
-            coroutineContext[ContinuationInterceptor] as CoroutineDispatcher
-        )
+        Dispatchers.setMain( dispatcher )
     }
 
     override fun finished(description: Description) {

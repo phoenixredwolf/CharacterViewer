@@ -39,10 +39,13 @@ splash-core = "1.0.0"
 sliding = "1.2.0-beta01"
 
 # testing
+archCore = "2.2.0"
 junit = "4.13.2"
 junit-ext = "1.1.5"
 espresso = "3.5.1"
+espresso-contrib = "3.3.0"
 mockito = "5.3.1"
+rules = '1.1.0'
 
 [libraries]
 # Androidx
@@ -78,6 +81,7 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", ver
 
 # OkHttp
 okhttp-logger = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+okhttp-webserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "okhttp" }
 
 # Retrofit
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
@@ -90,8 +94,12 @@ sliding-panel = { group = "androidx.slidingpanelayout", name = "slidingpanelayou
 splash-core = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash-core"}
 
 # Testing
+androidx-arch = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCore"}
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 junit-ext = { group = "androidx.test.ext", name = "junit", version.ref = "junit-ext" }
+espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espresso-contrib" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+test-rules = { group = "androidx.test", name = "rules", version.ref = "rules" }
+test-runner = { group = "androidx.test", name = "runner", version.ref = "rules" }

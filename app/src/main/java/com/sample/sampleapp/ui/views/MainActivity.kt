@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.sample.sampleapp.BuildConfig
 import com.sample.sampleapp.R
 import com.sample.sampleapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,9 +41,9 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             title = when (destination.id) {
-//                R.id.FirstFragment -> "${BuildConfig.FRAGMENT_NAME} Character List"
-//                R.id.SecondFragment -> "${BuildConfig.FRAGMENT_NAME} Character Details"
-                else -> /*BuildConfig.FRAGMENT_NAME*/"Character List"
+                R.id.ListFragment -> "${BuildConfig.FRAGMENT_NAME} Character List"
+                R.id.DetailFragment -> "${BuildConfig.FRAGMENT_NAME} Character Details"
+                else -> "${BuildConfig.FRAGMENT_NAME} Character List"
             }
             supportActionBar?.title = title
         }
